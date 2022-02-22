@@ -13,8 +13,14 @@
 #Which variables are significant at the 95% significance level? Please justify your answer.
 #Please provide a short interpretation of the model results.
 
+#install packages
+install.packages("tidyverse")
+library(tidyverse)
 #Load data 
 foodinsecure <- readxl::read_xlsx("FoodInsecurity.xlsx")
 #how  many unique values we have in each column using sapply
 sapply(foodinsecure, function(x) (unique(x)))
-
+#detecting string in a column using grep
+try <- Faostat[grep("the census covered both ", Faostat$Note), ]
+try <- Faostat[grep(">=", Faostat$Note), ]
+view(try)
